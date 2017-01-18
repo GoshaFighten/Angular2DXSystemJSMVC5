@@ -1,0 +1,21 @@
+﻿<dx-data-grid [dataSource]="store" [remoteOperations]="true" [height]="600" [showBorders]="true">
+    <dxi-column dataField="OrderID"></dxi-column>
+    <dxi-column dataField="OrderDate" dataType="date"></dxi-column>
+    <dxi-column dataField="CustomerName"></dxi-column>
+    <dxi-column dataField="ShipCountry" [setCellValue]="setShipCountryValue">
+        <dxo-lookup [dataSource]="countryStore" valueExpr="CountryName" displayExpr="CountryName"></dxo-lookup>
+    </dxi-column>
+    <dxi-column dataField="ShipCity">
+        <dxo-lookup [dataSource]="getCityStore"  valueExpr="CityName" displayExpr="CityName"></dxo-lookup>
+    </dxi-column>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-editing [allowAdding]="true" [allowDeleting]="true" [allowUpdating]="true"></dxo-editing>
+    <dxo-grouping [autoExpandAll]="false"></dxo-grouping>
+    <dxo-summary>
+        <dxi-total-item column="shipCity" summaryType="sum"></dxi-total-item>
+        <dxi-group-item column="shipCity" summaryType="sum"></dxi-group-item>
+        <dxi-group-item summaryType="count"></dxi-group-item>
+    </dxo-summary>
+</dx-data-grid>

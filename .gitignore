@@ -3,3 +3,8 @@
 ################################################################################
 
 *.suo
+/Angular2DXSystemJSMVC5/bin
+/Angular2DXSystemJSMVC5/obj/Debug
+/packages
+/.vs/config
+/Angular2DXSystemJSMVC5/Angular2DXSystemJSMVC5.csproj.user
